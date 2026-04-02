@@ -26,6 +26,8 @@ const mockChartData = [
   { name: '15:30', value: 24420 },
 ];
 
+const BASE_URL = 'https://stocksense-ai-rreg.onrender.com';
+
 function App() {
   const [stocks, setStocks] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -38,17 +40,16 @@ function App() {
     const fetchData = async () => {
       try {
         setLoading(true);
-        // Check health
-        const healthRes = await axios.get('http://localhost:8000/');
+        const healthRes = await axios.get(`${BASE_URL}/`);
         setIsOnline(healthRes.data.status === 'online');
 
-        const scanRes = await axios.get('http://localhost:8000/stocks/scan');
+        const scanRes = await axios.get(`${BASE_URL}/stocks/scan`);
         setStocks(scanRes.data);
 
-        const briefRes = await axios.get('http://localhost:8000/market/brief');
+        const briefRes = await axios.get(`${BASE_URL}/market/brief`);
         setMarketBrief(briefRes.data.briefing);
 
-        const niftyRes = await axios.get('http://localhost:8000/market/nifty');
+        const niftyRes = await axios.get(`${BASE_URL}/market/nifty`);
         setNiftyHistory(niftyRes.data);
         
         if (niftyRes.data.length > 0) {
@@ -231,6 +232,9 @@ function App() {
       </main>
     </div>
   );
+}
+
+export default App;
 }
 
 export default App;
