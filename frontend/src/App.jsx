@@ -27,6 +27,7 @@ const mockChartData = [
 ];
 
 const BASE_URL = 'https://stocksense-ai-rreg.onrender.com';
+axios.defaults.timeout = 60000;
 
 function App() {
   const [stocks, setStocks] = useState([]);
@@ -74,7 +75,6 @@ function App() {
 
   return (
     <div className="min-h-screen bg-background text-white font-sans">
-      {/* Sidebar */}
       <aside className="fixed left-0 top-0 h-full w-20 flex flex-col items-center py-8 glass border-r border-white/10 z-50">
         <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center mb-12 glow-purple">
           <TrendingUp className="text-white" size={28} />
@@ -90,9 +90,7 @@ function App() {
         </div>
       </aside>
 
-      {/* Main Content */}
       <main className="pl-28 pr-8 py-8 max-w-7xl mx-auto">
-        {/* Header */}
         <header className="flex justify-between items-center mb-10">
           <div>
             <h1 className="text-4xl font-bold mb-2">InvestMate <span className="gradient-text">AI</span></h1>
@@ -120,7 +118,6 @@ function App() {
         </header>
 
         <div className="grid grid-cols-12 gap-6">
-          {/* Market Briefing Card */}
           <div className="col-span-12 glass p-6 rounded-3xl border-l-4 border-l-secondary glow-teal mb-4">
             <div className="flex items-center gap-3 mb-2">
               <Zap className="text-secondary" size={20} />
@@ -131,7 +128,6 @@ function App() {
             </p>
           </div>
 
-          {/* Chart Section */}
           <div className="col-span-8 glass p-6 rounded-3xl relative overflow-hidden">
              <div className="flex justify-between items-center mb-6">
                 <div>
@@ -150,7 +146,6 @@ function App() {
                   <button className="px-3 py-1 text-xs font-medium rounded-md hover:bg-white/5">1M</button>
                 </div>
              </div>
-             
              <div className="h-64 mt-4">
                 <ResponsiveContainer width="100%" height="100%">
                   <AreaChart data={niftyHistory.length > 0 ? niftyHistory : mockChartData}>
@@ -173,7 +168,6 @@ function App() {
              </div>
           </div>
 
-          {/* Opportunity Radar */}
           <div className="col-span-4 glass p-6 rounded-3xl flex flex-col">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-xl font-bold flex items-center gap-2">
@@ -232,9 +226,6 @@ function App() {
       </main>
     </div>
   );
-}
-
-export default App;
 }
 
 export default App;
