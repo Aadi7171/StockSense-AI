@@ -1,7 +1,6 @@
 # InvestMate AI 📈
 
 🔴 Live Demo: https://stock-sense-ai-gamma.vercel.app
-![Dashboard](screenshots/dashboard.png)
 
 **InvestMate AI** is a professional-grade market intelligence dashboard designed specifically for the Indian retail investor. It combines real-time technical analysis with Large Language Models (LLMs) to provide clear, actionable insights for Nifty 50 stocks.
 
