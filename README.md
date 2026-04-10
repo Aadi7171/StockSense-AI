@@ -1,4 +1,4 @@
-# InvestMate AI 📈
+# StockSense-AI 📈
 
 🔴 Live Demo: https://stock-sense-ai-gamma.vercel.app
 
